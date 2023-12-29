@@ -18,7 +18,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'vel_keyboard_setter = vehicle_inputs_setter.vel_keyboard_setter:main',
             'vel_throttle_setter = vehicle_inputs_setter.vel_throttle_setter:main',
         ],
     },
