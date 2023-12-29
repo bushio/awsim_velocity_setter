@@ -11,10 +11,10 @@ class vel_throttle_setter(Node):
     def __init__(self):
         super().__init__('vel_throttle_setter')
 
-        # raw_vehicle_cmd_coverter からトピックを受信
+        # dallara_interface からトピックを受信
         self.create_subscription(VehicleInputs, "/vehicle_inputs_prepare", self.onTrigger, 1)
 
-        # dallara_interface にトピックを送信
+        # AWSIM にトピックを送信
         self.vehicle_inputs_pub_ = self.create_publisher(VehicleInputs, "/vehicle_inputs", 1)
 
         # throttle を 10 で固定とする
