@@ -17,12 +17,10 @@ class vel_throttle_setter(Node):
         # dallara_interface にトピックを送信
         self.vehicle_inputs_pub_ = self.create_publisher(VehicleInputs, "/vehicle_inputs", 1)
 
-        self.throttleb = 10
+        # throttle を 10 で固定とする
+        self.throttle = 10.0
 
     def onTrigger(self, msg):
-        self.get_logger().info("throttle_cmd {}".format(msg.throttle_cmd))
-        self.get_logger().info("brake_cmd {}".format(msg.brake_cmd))
-        self.get_logger().info("brake_cmd_count {}".format(msg.brake_cmd_count))
         msg.throttle_cmd = self.throttle
         # トピックを送信
         self.vehicle_inputs_pub_.publish(msg)
