@@ -20,8 +20,16 @@ class vel_throttle_setter(Node):
         # throttle を 10 で固定とする
         self.throttle = 10.0
 
+        # log を出力するかどうか
+        self.log = False
+
     def onTrigger(self, msg):
+        if self.log:
+            self.get_logger().info("throttle_cmd {}".format(msg.throttle_cmd))
+            self.get_logger().info("brake_cmd {}".format(msg.brake_cmd))
+
         msg.throttle_cmd = self.throttle
+
         # トピックを送信
         self.vehicle_inputs_pub_.publish(msg)
 
