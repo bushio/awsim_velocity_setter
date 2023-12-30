@@ -19,6 +19,7 @@ setup(
     entry_points={
         'console_scripts': [
             'vel_throttle_setter = vehicle_inputs_setter.vel_throttle_setter:main',
+            'controller_setter = vehicle_inputs_setter.controller_setter:main',
         ],
     },
 )
